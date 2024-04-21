@@ -2,6 +2,7 @@ package com.example.myapplication.presentation
 
 import android.content.Context
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -64,6 +65,7 @@ class StartChallengeActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContent {
             MyApplicationTheme {
                 // A surface container using the 'background' color from the theme
@@ -394,7 +396,7 @@ fun InitiateUI(questionList: MainQuestion?, flagImage: MutableList<Int>) {
                             Image(
                                 painterResource(flagImage[questionNumber.intValue]),
                                 contentDescription = "",
-                                contentScale = ContentScale.Crop,
+                                contentScale = ContentScale.Fit,
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
